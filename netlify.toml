@@ -1,4 +1,3 @@
-@"
 # Configuración para el deploy en Netlify
 # Esto le dice a Netlify cómo construir tu sitio Astro
 
@@ -8,4 +7,3 @@
   
   # Directorio que se publicará (Astro lo genera por defecto)
   publish = "dist"
-"@ | Set-Content netlify.toml -Encoding utf8
