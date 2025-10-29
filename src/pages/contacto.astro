@@ -16,20 +16,26 @@ import Layout from '../layouts/Layout.astro';
       <div class="max-w-4xl mx-auto md:flex md:gap-16">
         <div class="md:w-2/3">
 
+          {/* AQUÍ ESTÁ LA CORRECCIÓN 1:
+            Le decimos a TypeScript que ignore el error "netlify" en la línea siguiente
+          */}
+          {/* @ts-ignore */}
           <form 
             name="contact" 
             method="POST" 
-            action="/gracias"
-            data-netlify="true"
+            netlify 
             data-netlify-honeypot="bot-field"
             class="space-y-4"
           >
 
+            {/* AQUÍ ESTÁ LA CORRECCIÓN 2:
+              Corregí el '</F>' por '</p>'
+            */}
             <p class="hidden">
               <label>
                 No llenar si eres humano: <input name="bot-field" />
               </label>
-            </F>
+            </p>
 
             <div>
               <label for="name" class="block text-sm font-medium text-neutral-700 mb-1">
