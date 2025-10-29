@@ -16,24 +16,32 @@ import Layout from '../layouts/Layout.astro';
       <div class="max-w-4xl mx-auto md:flex md:gap-16">
         <div class="md:w-2/3">
 
-          {/* === INICIO DEL FORMULARIO REAL (VISIBLE) === */}
+          {/* === INICIO DEL FORMULARIO ÚNICO Y CORREGIDO === */}
           
-          {/* @ts-ignore (Esto ignora el error 'netlify' para este formulario) */}
+          {/* @ts-ignore (Ignoramos el error de TypeScript para 'netlify') */}
           <form 
             name="contact" 
             method="POST" 
             netlify 
             data-netlify-honeypot="bot-field"
+            action="/gracias"  
             class="space-y-4"
           >
+            {/* Campo oculto #1: Para el "honeypot" (evitar spam).
+            */}
             <p class="hidden">
               <label>
                 No llenar si eres humano: <input name="bot-field" />
               </label>
             </p>
+
+            {/* Campo oculto #2: Le dice a Netlify el nombre del formulario.
+              Esto es clave para que lo detecte.
+            */}
             <input type="hidden" name="form-name" value="contact" />
 
-            {/* ... (Campos del formulario: Nombre, Email, Mensaje) ... */}
+
+            {/* --- Campos Visibles --- */}
             <div>
               <label for="name" class="block text-sm font-medium text-neutral-700 mb-1">
                 Nombre Completo
@@ -83,7 +91,7 @@ import Layout from '../layouts/Layout.astro';
               </button>
             </div>
           </form>
-          {/* === FIN DEL FORMULARIO REAL === */}
+          {/* === FIN DEL FORMULARIO === */}
 
         </div>
         <div class="md:w-1/3 mt-12 md:mt-0">
@@ -91,7 +99,6 @@ import Layout from '../layouts/Layout.astro';
             Información Directa
           </h3>
           <div class="space-y-3 text-neutral-700">
-            {/* ... (Info de contacto sin cambios) ... */}
             <p>
               <strong>Email:</strong><br>
               <a href="mailto:info@seguricor.com" class="hover:text-primary-600">
@@ -114,17 +121,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </main>
 
-  {/* === INICIO DEL TRUCO PARA NETLIFY === */}
-  
-  {/* AQUÍ ESTÁ LA CORRECCIÓN:
-    Añadimos @ts-ignore también para este formulario oculto 
+  {/* Ya NO hay formulario oculto. Lo eliminamos.
   */}
-  {/* @ts-ignore */}
-  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <textarea name="message"></textarea>
-  </form>
-  {/* === FIN DEL TRUCO === */}
 
 </Layout>
