@@ -1,16 +1,156 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import IconArrowRight from '../components/icons/IconArrowRight.astro';
+import ServiceCard from '../components/ServiceCard.astro';
 
+// --- IMÁGENES DE RELLENO ---
+// (Estas importaciones fallarán hasta que añadas las imágenes)
+// 1. Añade tus 3 fotos a la carpeta 'src/assets/'
+// 2. Renombra estas líneas para que coincidan con tus archivos
+import heroImage from '../assets/hero-banner.jpg';
+import history1960 from '../assets/historia-1960.jpg';
+import history1990 from '../assets/historia-1990.jpg';
+import history2015 from '../assets/historia-2015.jpg';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Seguricor - Soluciones en Soldadura Industrial">
+  <main class="flex-1">
+    
+    <section class="relative h-[70vh] min-h-[450px] flex items-center">
+      <Image
+        src={heroImage}
+        alt="Soldador industrial trabajando en taller Seguricor"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-neutral-900/80 to-neutral-900/20"></div>
+      <div class="relative z-10 container mx-auto px-4">
+        <div class="max-w-2xl">
+          <h1 class="text-5xl md:text-6xl font-heading font-bold text-white">
+            SOLDADURA DE PRECISIÓN INDUSTRIAL
+          </h1>
+          <p class="text-xl text-neutral-100 mt-4 font-sans">
+            En Seguricor, transformamos el metal con experiencia y tecnología.
+            Ofrecemos servicios TIG, MIG y fabricación a medida.
+          </p>
+          <a
+            href="/contacto"
+            class="mt-8 inline-flex items-center gap-2 bg-primary-600 text-white font-bold
+                   py-3 px-6 rounded-lg font-heading
+                   hover:bg-primary-500 transition-colors"
+          >
+            COTIZAR PROYECTO
+            <IconArrowRight />
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="text-4xl font-heading font-bold text-neutral-900">
+            Nuestros Servicios Principales
+          </h2>
+          <p class="text-lg text-neutral-500 mt-2">
+            Calidad, precisión y durabilidad en cada proyecto.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <ServiceCard
+            title="SOLDADURA TIG"
+            description="Alta precisión (GTAW) para acabados limpios en acero inoxidable, aluminio y aleaciones especiales."
+          />
+          <ServiceCard
+            title="SOLDADURA MIG/MAG"
+            description="Proceso versátil y rápido (GMAW) ideal para la fabricación de estructuras de acero al carbono."
+          />
+          <ServiceCard
+            title="FABRICACIÓN A MEDIDA"
+            description="Corte por plasma, plegado y ensamblaje para crear piezas y estructuras según sus especificaciones."
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-neutral-100 py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-4xl font-heading font-bold text-neutral-900">
+            Confianza y Experiencia de Generaciones
+          </h2>
+          <p class="text-lg text-neutral-500 mt-2">
+            Nuestra garantía se basa en años de dedicación, un equipo experto y un compromiso absoluto con la calidad.
+          </p>
+        </div>
+        
+        <div class="mb-16">
+          <h3 class="text-3xl font-heading font-medium text-primary-600 mb-4 text-center">
+            NUESTRA HISTORIA
+          </h3>
+          <p class="text-neutral-700 text-lg text-center max-w-3xl mx-auto mb-12">
+            Somos una empresa familiar con tradición desde 1960. Mi abuelo, Pedro Ramos Núñez, inició este oficio artesanal; mi padre, Carlos Imas Sarabia, lo perfeccionó con la fabricación de maquinarias que mejoraron la calidad y rapidez del trabajo. Hoy, junto a él, continuamos con dedicación, prestigio y la firme convicción de seguir creciendo con la ayuda de Dios.
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            
+            <div class="text-center">
+              <Image
+                src={history1960}
+                alt="Foto histórica de Seguricor en 1960"
+                class="w-full h-80 object-cover rounded-lg shadow-md mb-4 border-2 border-white"
+              />
+              <h4 class="text-2xl font-heading font-medium text-neutral-900">1960</h4>
+              <p class="text-neutral-500">Los Inicios</p>
+            </div>
+            
+            <div class="text-center">
+              <Image
+                src={history1990}
+                alt="Foto del taller de Seguricor en 1990"
+                class="w-full h-80 object-cover rounded-lg shadow-md mb-4 border-2 border-white"
+              />
+              <h4 class="text-2xl font-heading font-medium text-neutral-900">1990</h4>
+              <p class="text-neutral-500">Expansión y Maquinaria</p>
+            </div>
+            
+            <div class="text-center">
+              <Image
+                src={history2015}
+                alt="Foto del equipo de Seguricor en 2015"
+                class="w-full h-80 object-cover rounded-lg shadow-md mb-4 border-2 border-white"
+              />
+              <h4 class="text-2xl font-heading font-medium text-neutral-900">2015</h4>
+              <p class="text-neutral-500">Nueva Generación</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="border-t border-neutral-300 max-w-xl mx-auto my-16" />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <div>
+            <h3 class="text-2xl font-heading font-medium text-primary-600 mb-3 text-center md:text-left">
+              NUESTRA MISIÓN
+            </h3>
+            <p class="text-neutral-700 text-center md:text-left">
+              Satisfacer las necesidades detectadas y mencionadas de nuestros clientes, en un trabajo de excelencia y de precisión.
+            </p>
+          </div>
+          
+          <div>
+            <h3 class="text-2xl font-heading font-medium text-primary-600 mb-3 text-center md:text-left">
+              NUESTRO OBJETIVO
+            </h3>
+            <p class="text-neutral-700 text-center md:text-left">
+              Entregar un trabajo de calidad de manera eficiente y responsable garantizando la entrega en los plazos establecidos y dando seguridad a nuestros clientes con nuestras garantías.
+            </F>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    </main>
+</Layout>

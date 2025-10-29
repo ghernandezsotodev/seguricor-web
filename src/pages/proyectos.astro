@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro'; 
+---
+
+<Layout title="Proyectos - Seguricor">
+  <main class="flex-1">
+    
+    <section class="bg-neutral-100 border-b border-neutral-200 py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl font-heading font-bold text-neutral-900">
+          Proyectos Destacados
+        </h1>
+        <p class="text-lg text-neutral-500 mt-2 max-w-2xl mx-auto">
+          Un vistazo a la calidad y precisión de nuestro trabajo.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          
+          <ProjectCard
+            title="Estructura Metálica Nave Industrial"
+            description="Fabricación y montaje de vigas de alma llena para centro de distribución. Soldadura MIG de alta penetración."
+            imageUrl="/images/placeholder-1.jpg"
+          />
+          
+          <ProjectCard
+            title="Pasarelas de Acero Inoxidable"
+            description="Diseño y soldadura TIG de pasarelas y barandillas sanitarias para planta de alimentos."
+            imageUrl="/images/placeholder-2.jpg"
+          />
+          
+          <ProjectCard
+            title="Reparación de Caldera Industrial"
+            description="Mantenimiento correctivo en cuerpo de caldera, reemplazando secciones con soldadura especializada."
+            imageUrl="/images/placeholder-1.jpg"
+          />
+
+          <ProjectCard
+            title="Pórtico de Corte por Plasma"
+            description="Fabricación de un pórtico a medida para maquinaria CNC, asegurando tolerancias de alta precisión."
+            imageUrl="/images/placeholder-2.jpg"
+          />
+          
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

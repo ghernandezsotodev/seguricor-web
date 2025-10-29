@@ -1,0 +1,63 @@
+﻿---
+import IconHamburger from './icons/IconHamburger.astro';
+import IconClose from './icons/IconClose.astro';
+---
+
+<!-- Contenedor principal visible solo en móviles -->
+<div class="block md:hidden relative z-50">
+  <!-- Botón de menú -->
+  <button
+    id="menu-toggle"
+    class="p-2 text-neutral-900 focus:outline-none relative z-50"
+    aria-label="Abrir menú de navegación"
+  >
+    <span class="icon-open inline-block">
+      <IconHamburger />
+    </span>
+    <span class="icon-close hidden">
+      <IconClose />
+    </span>
+  </button>
+
+  <!-- Menú desplegable -->
+  <div
+    id="mobile-menu"
+    class="hidden fixed inset-0 bg-neutral-50 z-40 flex flex-col items-center justify-center space-y-8 transition-opacity duration-300"
+  >
+    <a href="/" class="text-neutral-700 text-3xl font-heading hover:text-primary-600 transition-colors">Inicio</a>
+    <a href="/servicios" class="text-neutral-700 text-3xl font-heading hover:text-primary-600 transition-colors">Servicios</a>
+    <a href="/proyectos" class="text-neutral-700 text-3xl font-heading hover:text-primary-600 transition-colors">Proyectos</a>
+    <a
+      href="/contacto"
+      class="bg-primary-600 text-white px-8 py-3 rounded-lg text-2xl font-heading hover:bg-primary-500 transition-colors"
+    >
+      CONTACTO
+    </a>
+  </div>
+</div>
+
+<!-- Script sin dependencias, robusto y compatible con Astro -->
+<script is:inline>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const dropdown = document.getElementById('mobile-menu');
+  const iconOpen = toggleBtn?.querySelector('.icon-open');
+  const iconClose = toggleBtn?.querySelector('.icon-close');
+  const body = document.body;
+
+  if (toggleBtn && dropdown && iconOpen && iconClose) {
+    let isOpen = false;
+
+    const updateMenuState = () => {
+      isOpen = !isOpen;
+      dropdown.classList.toggle('hidden', !isOpen);
+      body.classList.toggle('overflow-hidden', isOpen);
+
+      iconOpen.classList.toggle('hidden', isOpen);
+      iconClose.classList.toggle('hidden', !isOpen);
+    };
+
+    toggleBtn.addEventListener('click', updateMenuState);
+  } else {
+    console.error('[MobileMenu] Elementos no encontrados.');
+  }
+</script>

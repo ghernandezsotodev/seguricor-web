@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import logoImage from '../assets/logo.png';
+
+import MobileMenu from './MobileMenu.astro';
+---
+
+<header class="bg-neutral-50 border-b border-neutral-100 sticky top-0 z-50">
+  <div class="container mx-auto px-4 flex justify-between items-center h-20">
+
+    <a href="/" class="block">
+      <Image
+        src={logoImage}
+        alt="Logo de Seguricor"
+        class="h-14 w-auto"
+        loading="eager"
+      />
+    </a>
+
+    <nav class="hidden md:flex">
+      <ul class="flex space-x-6 items-center">
+        <li>
+          <a
+            href="/"
+            class="text-neutral-700 hover:text-primary-600 font-medium transition-colors"
+          >
+            Inicio
+          </a>
+        </li>
+        <li>
+          <a
+            href="/servicios"
+            class="text-neutral-700 hover:text-primary-600 font-medium transition-colors"
+          >
+            Servicios
+          </a>
+        </li>
+        <li>
+          <a
+            href="/proyectos"
+            class="text-neutral-700 hover:text-primary-600 font-medium transition-colors"
+          >
+            Proyectos
+          </a>
+        </li>
+        <li>
+          <a
+            href="/contacto"
+            class="bg-primary-600 text-white font-bold
+                   py-2 px-5 rounded-lg font-heading text-sm
+                   hover:bg-primary-500 transition-colors"
+          >
+            CONTACTO
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <MobileMenu />
+
+  </div>
+</header>

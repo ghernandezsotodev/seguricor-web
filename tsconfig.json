@@ -1,5 +1,23 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "compilerOptions": {
+    /* Esto habilita las importaciones de componentes .astro en VS Code */
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    
+    /* Esto nos permite usar alias como @/components/... */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": [
+    ".astro/types.d.ts",
+    "**/*.astro",
+    "**/*.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }

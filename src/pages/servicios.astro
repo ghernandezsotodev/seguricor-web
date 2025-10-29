@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+---
+
+<Layout title="Servicios - Seguricor">
+  <main class="flex-1">
+    
+    <section class="bg-neutral-100 border-b border-neutral-200 py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl font-heading font-bold text-neutral-900">
+          Nuestros Servicios
+        </h1>
+        <p class="text-lg text-neutral-500 mt-2 max-w-2xl mx-auto">
+          Ofrecemos soluciones integrales en soldadura y fabricación metálica, 
+          garantizando precisión y calidad en cada proyecto.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <ServiceCard
+            title="SOLDADURA TIG (GTAW)"
+            description="Alta precisión para acabados limpios en acero inoxidable, aluminio y aleaciones especiales."
+          />
+          <ServiceCard
+            title="SOLDADURA MIG/MAG (GMAW)"
+            description="Proceso versátil y rápido, ideal para la fabricación de estructuras de acero al carbono."
+          />
+          <ServiceCard
+            title="FABRICACIÓN A MEDIDA"
+            description="Corte, plegado y ensamblaje para crear piezas y estructuras según sus especificaciones."
+          />
+          <ServiceCard
+            title="CORTE POR PLASMA"
+            description="Cortes de alta definición en diversos metales, permitiendo diseños complejos con gran exactitud."
+          />
+          <ServiceCard
+            title="MANTENIMIENTO INDUSTRIAL"
+            description="Reparación y mantenimiento de estructuras metálicas, maquinaria y equipos industriales."
+          />
+          <ServiceCard
+            title="ESTRUCTURAS METÁLICAS"
+            description="Diseño y fabricación de vigas, plataformas, barandillas y otras estructuras pesadas."
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

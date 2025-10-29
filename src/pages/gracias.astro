@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import IconArrowRight from '../components/icons/IconArrowRight.astro';
+---
+
+<Layout title="Mensaje Enviado - Seguricor">
+  <main class="flex-1">
+    <div class="container mx-auto px-4 py-16 md:py-32">
+      <div class="text-center max-w-xl mx-auto">
+        <h1 class="text-5xl font-heading font-bold text-neutral-900">
+          ¡Gracias por tu mensaje!
+        </h1>
+        <p class="text-xl text-neutral-500 mt-4">
+          Hemos recibido tu consulta correctamente. Nos pondremos en contacto 
+          contigo a la brevedad.
+        </p>
+        <a
+          href="/"
+          class="mt-8 inline-flex items-center gap-2 bg-primary-600 text-white font-bold
+                 py-3 px-6 rounded-lg font-heading
+                 hover:bg-primary-500 transition-colors"
+        >
+          VOLVER AL INICIO
+          <IconArrowRight />
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>
