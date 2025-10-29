@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-// Importamos el HTML estático del "cebo" como texto
-import NetlifyFormBait from '/form.html?raw'; 
+// NO hay import de 'form.html?raw'. Ha sido eliminado.
 ---
 
 <Layout title="Contacto - Seguricor">
@@ -13,12 +12,16 @@ import NetlifyFormBait from '/form.html?raw';
         </h1>
         <p class="text-lg text-neutral-500 mt-2">
           ¿Listo para comenzar tu próximo proyecto? Envíanos un mensaje.
-        </p>
+        </section>
       </div>
       <div class="max-w-4xl mx-auto md:flex md:gap-16">
         <div class="md:w-2/3">
 
-          {/* === INICIO DEL FORMULARIO REAL === */}
+          {/* === INICIO DEL FORMULARIO REAL === 
+            Este formulario HTML es normal. Netlify lo interceptará
+            porque el archivo 'public/form.html' (el "cebo")
+            ya activó la detección del formulario "contact".
+          */}
           <form 
             name="contact" 
             method="POST" 
@@ -112,10 +115,8 @@ import NetlifyFormBait from '/form.html?raw';
     </div>
   </main>
 
-  {/* === INICIO DEL TRUCO PARA NETLIFY ===
-    Inyectamos el HTML del "cebo" aquí.
-    El usuario no lo verá, pero el bot de Netlify sí.
+  {/* El div 'set:html' ha sido eliminado.
+    El archivo 'public/form.html' sigue existiendo y Netlify lo encontrará.
   */}
-  <div set:html={NetlifyFormBait} />
 
 </Layout>
