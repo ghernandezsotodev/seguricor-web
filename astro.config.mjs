@@ -6,5 +6,11 @@ import netlify from '@astrojs/netlify';
 // https://astro.build/config
 export default defineConfig({
   
-  integrations: [tailwind(),netlify()]
+  // Le decimos a Astro que construya un sitio 100% estático (SSG)
+  output: 'static',
+  
+  integrations: [
+    tailwind(),
+    netlify()
+  ]
 });
