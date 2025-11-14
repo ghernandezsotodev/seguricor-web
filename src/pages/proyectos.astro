@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ProjectCard from '../components/ProjectCard.astro'; 
+import ProjectCard from '../components/ProjectCard.astro';
+import IconClose from '../components/icons/IconClose.astro'; 
 ---
 
 <Layout title="Proyectos - Seguricor">
   <main class="flex-1">
-    
+
     <section class="bg-neutral-100 border-b border-neutral-200 py-16">
       <div class="container mx-auto px-4 text-center">
         <h1 class="text-5xl font-heading font-bold text-neutral-900">
@@ -19,35 +20,113 @@ import ProjectCard from '../components/ProjectCard.astro';
 
     <section class="py-16 md:py-24">
       <div class="container mx-auto px-4">
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          
+
+          {/* --- MODIFICACIÓN: Acentos corregidos --- */}
           <ProjectCard
-            title="Estructura Metálica Nave Industrial"
-            description="Fabricación y montaje de vigas de alma llena para centro de distribución. Soldadura MIG de alta penetración."
-            imageUrl="/images/placeholder-1.jpg"
-          />
-          
-          <ProjectCard
-            title="Pasarelas de Acero Inoxidable"
-            description="Diseño y soldadura TIG de pasarelas y barandillas sanitarias para planta de alimentos."
-            imageUrl="/images/placeholder-2.jpg"
-          />
-          
-          <ProjectCard
-            title="Reparación de Caldera Industrial"
-            description="Mantenimiento correctivo en cuerpo de caldera, reemplazando secciones con soldadura especializada."
-            imageUrl="/images/placeholder-1.jpg"
+            title="Motor Entre Vigas"
+            description="Reparación y ajuste de motor para cortina metálica, incluyendo alineación del eje y refuerzo estructural para un funcionamiento más seguro y confiable."
+            imageUrl="/images/placeholder-1.jpeg"
           />
 
           <ProjectCard
-            title="Pórtico de Corte por Plasma"
-            description="Fabricación de un pórtico a medida para maquinaria CNC, asegurando tolerancias de alta precisión."
-            imageUrl="/images/placeholder-2.jpg"
+            title="Vista General del Eje y Resortes"
+            description="Instalación y calibración de sistema motorizado para cortina metálica, con mejoras en la transmisión y puntos de soldadura para mayor durabilidad."
+            imageUrl="/images/placeholder-2.jpeg"
           />
-          
+
+          <ProjectCard
+            title="El Antes y Después de las placas"
+            description="Servicio de mantención completa de motor y mecanismos internos, reemplazando piezas desgastadas y optimizando el sistema de apertura y cierre."
+            imageUrl="/images/placeholder-3.jpeg"
+          />
+
+          <ProjectCard
+            title="Primer plano del motor y la caja naranja"
+            description="Montaje y ajuste de motor de alta potencia para cortina metálica industrial, garantizando un movimiento suave y un desempeño de larga vida útil."
+            imageUrl="/images/placeholder-4.jpeg"
+          />
+
         </div>
       </div>
     </section>
   </main>
-</Layout>
+
+  <div
+    id="modal-backdrop"
+    class="hidden fixed inset-0 bg-neutral-900/80 z-50
+           flex items-center justify-center p-4
+           transition-opacity duration-300 ease-in-out"
+  >
+    <button
+      id="modal-close"
+      class="absolute top-4 right-4 z-50 text-neutral-300 hover:text-white"
+      aria-label="Cerrar modal"
+    >
+      <IconClose />
+    </button>
+    
+    <div class="relative w-full max-w-4xl max-h-[90vh]">
+      <img
+        id="modal-image"
+        src="" 
+        alt="Proyecto Seguricor a pantalla completa"
+        class="w-full h-auto object-contain max-h-[90vh] rounded-lg shadow-xl"
+      />
+    </div>
+  </div>
+  </Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Seleccionar todos los elementos
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    const modalImage = document.getElementById('modal-image') as HTMLImageElement;
+    const modalCloseBtn = document.getElementById('modal-close');
+    
+    // Seleccionar todos los disparadores (las tarjetas)
+    const cardTriggers = document.querySelectorAll('.project-card-trigger');
+
+    if (!modalBackdrop || !modalImage || !modalCloseBtn) {
+      console.error("Error: Faltan elementos del modal.");
+      return;
+    }
+
+    // Función para abrir el modal
+    const openModal = (imageUrl: string) => {
+      modalImage.setAttribute('src', imageUrl);
+      modalBackdrop.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden'); // Bloquear scroll
+    };
+
+    // Función para cerrar el modal
+    const closeModal = () => {
+      modalBackdrop.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden'); // Desbloquear scroll
+      modalImage.setAttribute('src', ''); // Limpiar la imagen
+    };
+
+    // 1. Asignar clic a cada tarjeta
+    cardTriggers.forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevenir saltos de página
+        const imageUrl = card.getAttribute('data-image-url');
+        if (imageUrl) {
+          openModal(imageUrl);
+        }
+      });
+    });
+
+    // 2. Asignar clic al botón de cerrar
+    modalCloseBtn.addEventListener('click', closeModal);
+
+    // 3. Asignar clic al fondo oscuro (para cerrar)
+    modalBackdrop.addEventListener('click', (e) => {
+      // Solo cerrar si se hace clic en el fondo, no en la imagen
+      if (e.target === modalBackdrop) {
+        closeModal();
+      }
+    });
+  });
+</script>

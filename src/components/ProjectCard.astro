@@ -2,17 +2,22 @@
 interface Props {
   title: string;
   description: string;
-  imageUrl: string; 
+  imageUrl: string;
 }
 const { title, description, imageUrl } = Astro.props;
 ---
 
-<div class="
-  bg-white border border-neutral-200 rounded-lg shadow-sm
-  overflow-hidden
-  transition-all duration-300 ease-in-out
-  hover:shadow-lg hover:-translate-y-1
-">
+<div
+  class="
+    project-card-trigger
+    bg-white border border-neutral-200 rounded-lg shadow-sm
+    overflow-hidden
+    transition-all duration-300 ease-in-out
+    hover:shadow-lg hover:-translate-y-1
+    cursor-pointer
+  "
+  data-image-url={imageUrl}
+>
   <img
     src={imageUrl}
     alt={`Imagen del proyecto ${title}`}
