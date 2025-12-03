@@ -6,6 +6,7 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Contacto - Seguricor">
   <main class="flex-1">
     <div class="container mx-auto px-4 py-16 md:py-24">
+      
       <div class="text-center max-w-2xl mx-auto mb-12">
         <h1 class="text-5xl font-heading font-bold text-neutral-900">
           Contáctanos
@@ -14,13 +15,12 @@ import Layout from '../layouts/Layout.astro';
           ¿Listo para comenzar tu próximo proyecto? Envíanos un mensaje.
         </p>
       </div>
-      <div class="max-w-4xl mx-auto md:flex md:gap-16">
-        <div class="md:w-2/3">
 
+      <div class="max-w-4xl mx-auto md:flex md:gap-16">
+        
+        <div class="md:w-2/3">
           {/* === INICIO DEL FORMULARIO REAL === 
-            Este formulario HTML es normal. Netlify lo interceptará
-            porque el archivo 'public/form.html' (el "cebo")
-            ya activó la detección del formulario "contact".
+            Netlify interceptará este formulario gracias al archivo 'public/form.html'.
           */}
           <form 
             name="contact" 
@@ -28,8 +28,10 @@ import Layout from '../layouts/Layout.astro';
             action="/gracias"
             class="space-y-4"
           >
+            {/* Campo oculto obligatorio para enlazar con Netlify */}
             <input type="hidden" name="form-name" value="contact" />
 
+            {/* Honeypot para evitar spam */}
             <p class="hidden">
               <label>
                 No llenar si eres humano: <input name="bot-field" />
@@ -85,9 +87,8 @@ import Layout from '../layouts/Layout.astro';
               </button>
             </div>
           </form>
-          {/* === FIN DEL FORMULARIO REAL === */}
-
         </div>
+
         <div class="md:w-1/3 mt-12 md:mt-0">
           <h3 class="text-2xl font-heading font-medium text-neutral-900 mb-4">
             Información Directa
@@ -95,14 +96,21 @@ import Layout from '../layouts/Layout.astro';
           <div class="space-y-3 text-neutral-700">
             <p>
               <strong>Email:</strong><br>
-              <a href="mailto:info@seguricor.com" class="hover:text-primary-600">
+              <a href="mailto:info.seguricor@gmail.com" class="hover:text-primary-600 transition-colors">
                 info.seguricor@gmail.com
               </a>
             </p>
             <p>
-              <strong>Teléfono:</strong><br>
-              <a href="tel:+56971907925" class="hover:text-primary-600">
-                +56 9 71907925
+              <strong>WhatsApp / Teléfono:</strong><br>
+              {/* Enlace directo a WhatsApp */}
+              <a 
+                href="https://wa.me/56971907925" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="hover:text-primary-600 transition-colors inline-flex items-center gap-2"
+              >
+                +56 9 7190 7925
+                <span class="text-xs">↗</span>
               </a>
             </p>
             <p>
@@ -111,12 +119,8 @@ import Layout from '../layouts/Layout.astro';
             </p>
           </div>
         </div>
+
       </div>
     </div>
   </main>
-
-  {/* El div 'set:html' ha sido eliminado.
-    El archivo 'public/form.html' sigue existiendo y Netlify lo encontrará.
-  */}
-
 </Layout>

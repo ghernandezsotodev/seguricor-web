@@ -1,53 +1,152 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import IconArrowRight from '../components/icons/IconArrowRight.astro';
 ---
 
 <Layout title="Servicios - Seguricor">
   <main class="flex-1">
     
-    <section class="bg-neutral-100 border-b border-neutral-200 py-16">
-      <div class="container mx-auto px-4 text-center">
-        <h1 class="text-5xl font-heading font-bold text-neutral-900">
-          Nuestros Servicios
+    <section class="bg-neutral-900 text-white py-20 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 opacity-90"></div>
+      
+      <div class="container mx-auto px-4 relative z-10 text-center">
+        <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6">
+          Soluciones en <span class="text-primary-600">Cierre y Seguridad</span>
         </h1>
-        <p class="text-lg text-neutral-500 mt-2 max-w-2xl mx-auto">
-          Ofrecemos soluciones integrales en soldadura y fabricación metálica, 
-          garantizando precisión y calidad en cada proyecto.
+        <p class="text-xl text-neutral-300 max-w-2xl mx-auto leading-relaxed">
+          Más que cortinas metálicas, instalamos tranquilidad. Desde la fabricación a medida hasta la automatización avanzada para tu hogar o negocio.
         </p>
       </div>
     </section>
 
-    <section class="py-16 md:py-24">
+    <section class="py-16 md:py-24 bg-neutral-50">
       <div class="container mx-auto px-4">
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl font-heading font-bold text-neutral-900">
+            Nuestras Especialidades
+          </h2>
+          <p class="text-neutral-500 mt-4 text-lg">
+            Abordamos cada aspecto de la seguridad perimetral con técnica y precisión.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          
           <ServiceCard
-            title="SOLDADURA TIG (GTAW)"
-            description="Alta precisión para acabados limpios en acero inoxidable, aluminio y aleaciones especiales."
+            title="FABRICACIÓN E INSTALACIÓN"
+            description="Cortinas metálicas a medida para cualquier fachada. Nos adaptamos a arcos, grandes dimensiones comerciales y divisiones interiores."
           />
+          
           <ServiceCard
-            title="SOLDADURA MIG/MAG (GMAW)"
-            description="Proceso versátil y rápido, ideal para la fabricación de estructuras de acero al carbono."
+            title="MOTORIZACIÓN Y AUTOMATIZACIÓN"
+            description="Olvídate del esfuerzo manual. Instalamos motores de alta potencia (caja naranja, centrales) para un acceso cómodo, rápido y seguro."
           />
+          
           <ServiceCard
-            title="FABRICACIÓN A MEDIDA"
-            description="Corte, plegado y ensamblaje para crear piezas y estructuras según sus especificaciones."
+            title="MANTENCIÓN Y REPARACIÓN"
+            description="Recuperamos la funcionalidad de tu cortina. Cambio de resortes, alineación de ejes, reparación de placas y guías desgastadas."
           />
+
           <ServiceCard
-            title="CORTE POR PLASMA"
-            description="Cortes de alta definición en diversos metales, permitiendo diseños complejos con gran exactitud."
+            title="REFUERZO DE SEGURIDAD"
+            description="Blindaje y mejoras estructurales para bodegas y locales vulnerables. Instalamos sistemas robustos para protección nocturna."
           />
+
           <ServiceCard
-            title="MANTENIMIENTO INDUSTRIAL"
-            description="Reparación y mantenimiento de estructuras metálicas, maquinaria y equipos industriales."
+            title="SOLUCIONES ESTÉTICAS"
+            description="La seguridad no debe reñir con el diseño. Ofrecemos acabados que se integran con madera, piedra y fachadas modernas."
           />
+
           <ServiceCard
-            title="ESTRUCTURAS METÁLICAS"
-            description="Diseño y fabricación de vigas, plataformas, barandillas y otras estructuras pesadas."
+            title="SERVICIO TÉCNICO EN TERRENO"
+            description="Diagnóstico y solución de problemas in situ. Evaluamos el estado de tu motor y estructura para prevenir fallos críticos."
           />
+          
         </div>
       </div>
     </section>
+
+    <section class="py-16 md:py-24 bg-white border-t border-neutral-100">
+      <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto md:flex items-center gap-16">
+          
+          <div class="md:w-1/2 mb-10 md:mb-0">
+            <h2 class="text-4xl font-heading font-bold text-neutral-900 mb-6">
+              Experiencia que se nota en cada detalle
+            </h2>
+            <p class="text-lg text-neutral-600 mb-6 leading-relaxed">
+              En Seguricor no solo instalamos metal; aplicamos décadas de oficio familiar. Entendemos que una cortina atascada es un negocio detenido, y que una instalación débil es un riesgo para tu familia.
+            </p>
+            <p class="text-lg text-neutral-600 leading-relaxed">
+              Ya sea ajustando un motor entre vigas o calibrando resortes de alta tensión, nuestro trabajo está garantizado para durar.
+            </p>
+          </div>
+
+          <div class="md:w-1/2">
+            <ul class="space-y-6">
+              <li class="flex items-start gap-4">
+                <div class="bg-primary-100 p-3 rounded-full text-primary-600 shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-heading font-medium text-neutral-900">Precisión Técnica</h3>
+                  <p class="text-neutral-500 mt-1">Alineación perfecta de ejes y guías para evitar ruidos y desgastes prematuros.</p>
+                </div>
+              </li>
+              
+              <li class="flex items-start gap-4">
+                <div class="bg-primary-100 p-3 rounded-full text-primary-600 shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-heading font-medium text-neutral-900">Motores de Alta Potencia</h3>
+                  <p class="text-neutral-500 mt-1">Trabajamos solo con equipos certificados capaces de levantar alto tonelaje sin esfuerzo.</p>
+                </div>
+              </li>
+
+              <li class="flex items-start gap-4">
+                <div class="bg-primary-100 p-3 rounded-full text-primary-600 shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-heading font-medium text-neutral-900">Respuesta Rápida</h3>
+                  <p class="text-neutral-500 mt-1">Sabemos que la seguridad no espera. Atendemos requerimientos con agilidad.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-neutral-900 py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+          ¿Necesitas asesoría técnica o una cotización?
+        </h2>
+        <p class="text-neutral-400 text-lg mb-8 max-w-2xl mx-auto">
+          Cuéntanos tu proyecto o problema. Te orientamos sobre la mejor solución para tu cortina metálica.
+        </p>
+        <a
+          href="/contacto"
+          class="inline-flex items-center gap-2 bg-primary-600 text-white font-bold
+                 py-4 px-8 rounded-lg font-heading text-lg
+                 hover:bg-primary-500 transition-colors shadow-lg hover:shadow-primary-600/30"
+        >
+          CONTACTAR AHORA
+          <IconArrowRight />
+        </a>
+      </div>
+    </section>
+
   </main>
 </Layout>
